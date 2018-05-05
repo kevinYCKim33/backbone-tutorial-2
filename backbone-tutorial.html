@@ -9,7 +9,15 @@
   <!-- ========= -->
   <!-- Your HTML -->
   <!-- ========= -->
-  <div id="container">Loading...</div>
+  <section id="todoapp">
+    <header id="header">
+      <h1>Todos</h1>
+      <input id="new-todo" placeholder="What needs to be done?">
+    </header>
+    <section id="main">
+      <ul id="todo-list"></ul>
+    </section>
+  </section>
   <!-- ========= -->
   <!-- Libraries -->
   <!-- ========= -->
@@ -22,6 +30,21 @@
   <!-- Javascript code -->
   <!-- =============== -->
   <script type="text/javascript">
+    'use strict';
+
+    var app = {}; // create a namespace for our app
+
+    //----------
+    // Models
+    //----------
+
+    app.Todo = Backbone.Model.extend({
+      defaults: {
+        title: '',
+        completed: false
+      }
+    });
+
     var AppView = Backbone.View.extend({
       el: $('#container'),
       // template which has the placeholder 'who' to be substitute later
@@ -36,7 +59,7 @@
       }
     });
     var appView = new AppView();
-  </script>
+  </script> <!--end js script -->
 
 </body>
 </html>
